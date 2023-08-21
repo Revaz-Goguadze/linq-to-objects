@@ -46,9 +46,6 @@ namespace Linq
             return numbers.Select(number => strings[number]);
         }
 
-        /// <summary>
-        /// Produces a sequence of the uppercase and lowercase versions of each word in the original array.
-        /// </summary>
         /// <returns>The sequence of the uppercase and lowercase versions of each word in the original array.</returns>
         public static IEnumerable<(string upper, string lower)> SelectByCase()
         {
