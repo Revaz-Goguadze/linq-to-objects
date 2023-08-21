@@ -47,7 +47,9 @@ namespace Linq
         }
 
         /// <returns>The sequence of the uppercase and lowercase versions of each word in the original array.</returns>
+#pragma warning disable SA1604
         public static IEnumerable<(string upper, string lower)> SelectByCase()
+#pragma warning restore SA1604
         {
             string[] words = { "aPPLE", "BlUeBeRrY", "cHeRry" };
 
@@ -146,9 +148,6 @@ namespace Linq
         /// <returns>All orders where the order total is less than 500.00.</returns>
         public static IEnumerable<(string customerId, int orderId, decimal total)> SelectFromChildSequence()
         {
-            // ReSharper disable once UnusedVariable
-            List<Customer> customers = Customers.CustomerList;
-
             throw new NotImplementedException();
         }
 
@@ -158,12 +157,6 @@ namespace Linq
         /// <returns>All orders where the order was made in 1998 or later.</returns>
         public static IEnumerable<(string customerId, int orderId, string orderDate)> SelectManyWithWhere()
         {
-            // ReSharper disable once UnusedVariable
-            List<Customer> customers = Customers.CustomerList;
-
-            // ReSharper disable once UnusedVariable
-            var dateTime = new DateTime(1998, 1, 1);
-
             throw new NotImplementedException();
         }
 
@@ -173,9 +166,6 @@ namespace Linq
         /// <returns>All orders where the order total is greater than 2000.00.</returns>
         public static IEnumerable<(string customerId, int orderId, decimal totalValue)> SelectManyWhereAssignment()
         {
-            // ReSharper disable once UnusedVariable
-            List<Customer> customers = Customers.CustomerList;
-
             throw new NotImplementedException();
         }
 
@@ -185,12 +175,6 @@ namespace Linq
         /// <returns>All customers in Washington region with an order date greater than or equal to the given.</returns>
         public static IEnumerable<(string customerId, int orderId)> SelectMultipleWhereClauses()
         {
-            // ReSharper disable once UnusedVariable
-            List<Customer> customers = Customers.CustomerList;
-
-            // ReSharper disable once UnusedVariable
-            DateTime cutoffDate = new DateTime(1997, 1, 1);
-
             throw new NotImplementedException();
         }
 
@@ -200,9 +184,6 @@ namespace Linq
         /// <returns>All orders info in some string format (see unit tests), while referring to customers by the order in which they are returned from the query.</returns>
         public static IEnumerable<string> IndexedSelectMany()
         {
-            // ReSharper disable once UnusedVariable
-            List<Customer> customers = Customers.CustomerList;
-
             throw new NotImplementedException();
         }
     }

@@ -42,9 +42,6 @@ namespace Linq
         /// <returns>The sequence of customers and how many orders each has.</returns>
         public static IEnumerable<(string customerId, int orderCount)> CustomersOrdersCount()
         {
-            // ReSharper disable once UnusedVariable
-            List<Customer> customers = Customers.CustomerList;
-
             throw new NotImplementedException();
         }
 
@@ -115,15 +112,9 @@ namespace Linq
             // ReSharper disable once UnusedVariable
             int[] numbers = { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 };
 
-            throw new NotImplementedException();
+            return numbers.Min();
         }
 
-        /// <summary>
-        /// Calculates the length of the shortest word in an array.
-        /// </summary>
-#pragma warning disable SA1616
-        /// <returns />
-#pragma warning restore SA1616
         public static int MinByLength()
         {
             string[] words = { "cherry", "apple", "blueberry" };
@@ -141,9 +132,6 @@ namespace Linq
         public static IEnumerable<(string category, decimal cheapestPrice)> GetCheapestPrice()
 #pragma warning restore CA1024
         {
-            // ReSharper disable once UnusedVariable
-            List<Product> products = Products.ProductList;
-
             throw new NotImplementedException();
         }
 
@@ -179,9 +167,6 @@ namespace Linq
         public static IEnumerable<(string category, decimal mostExpensivePrice)> GetMostExpensivePrice()
 #pragma warning restore CA1024
         {
-            // ReSharper disable once UnusedVariable
-            List<Product> products = Products.ProductList;
-
             throw new NotImplementedException();
         }
 
@@ -213,9 +198,6 @@ namespace Linq
         /// <returns>The average price of each category's products.</returns>
         public static IEnumerable<(string Category, decimal averagePrice)> AveragePrice()
         {
-            // ReSharper disable once UnusedVariable
-            List<Product> products = Products.ProductList;
-
             throw new NotImplementedException();
         }
 

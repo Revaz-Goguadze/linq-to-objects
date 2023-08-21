@@ -16,7 +16,6 @@ namespace Linq
             // ReSharper disable once CollectionNeverQueried.Local
             var numbers = new List<int> { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 };
 
-            // TODO: Create a LINQ query that finds all array elements with a value greater than 5, and assign it to the variable numberMore5.
             IEnumerable<int> numberMore5 = null;
 
             numbers.Add(10);
@@ -41,7 +40,6 @@ namespace Linq
             // ReSharper disable once CollectionNeverQueried.Local
             var numbers = new List<int> { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 };
 
-            // TODO: Create a LINQ query that finds all array elements with a value greater than 5, and assign it to the variable numberMore5.
             IEnumerable<int> numberMore5 = null;
 
             numbers.Add(10);
