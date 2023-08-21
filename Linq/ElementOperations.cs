@@ -45,7 +45,7 @@ namespace Linq
         /// <returns>The value 0.</returns>
         public static int MaybeFirstElement()
         {
-            int[] numbers = { };
+            int[] numbers = Array.Empty<int>();
 
             return numbers.FirstOrDefault();
         }
@@ -94,7 +94,7 @@ namespace Linq
         /// <returns>The value 0.</returns>
         public static int MaybeLastElement()
         {
-            int[] numbers = { };
+            int[] numbers = Array.Empty<int>();
 
             return numbers.LastOrDefault();
         }
@@ -129,7 +129,7 @@ namespace Linq
 
         /// <summary>
         /// Tries to find the only element of a sequence that contains symbol 'o'
-        /// and returns a default value since no such element exists
+        /// and returns a default value since no such element exists.
         /// </summary>
         /// <returns>The value null.</returns>
         public static string MaybeSingleMatchingElement()

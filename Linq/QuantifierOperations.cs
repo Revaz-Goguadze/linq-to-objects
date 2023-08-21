@@ -23,7 +23,7 @@ namespace Linq
             var wordsA = new[] { "cherry", "apple", "blueberry" };
             var wordsB = new[] { "cherry", "apple", "blueberry" };
 
-            throw new NotImplementedException();
+            return wordsA.SequenceEqual(wordsB);
         }
 
         /// <summary>
@@ -35,7 +35,7 @@ namespace Linq
             var wordsA = new[] { "cherry", "apple", "blueberry" };
             var wordsB = new[] { "apple", "blueberry", "cherry" };
 
-            throw new NotImplementedException();
+            return wordsA.SequenceEqual(wordsB);
         }
 
         /// <summary>
@@ -46,7 +46,9 @@ namespace Linq
         {
             string[] words = { "believe", "relief", "receipt", "field" };
 
-            throw new NotImplementedException();
+#pragma warning disable CA1307
+            return words.Any(word => word.Contains("ei"));
+#pragma warning restore CA1307
         }
 
         /// <summary>
@@ -57,7 +59,13 @@ namespace Linq
         {
             List<Product> products = Products.ProductList;
 
-            throw new NotImplementedException();
+            var query =
+                from product in products
+                group product by product.Category into categoryGroup
+                where categoryGroup.Any(product => product.UnitsInStock == 0)
+                select (categoryGroup.Key, categoryGroup);
+
+            return (IEnumerable<(string category, IEnumerable<Product> products)>)query;
         }
 
         /// <summary>
@@ -68,7 +76,7 @@ namespace Linq
         {
             int[] numbers = { 1, 11, 3, 19, 41, 65, 19 };
 
-            throw new NotImplementedException();
+            return numbers.All(number => number % 2 == 1);
         }
 
         /// <summary>
@@ -79,7 +87,13 @@ namespace Linq
         {
             List<Product> products = Products.ProductList;
 
-            throw new NotImplementedException();
+            var query =
+                from product in products
+                group product by product.Category into categoryGroup
+                where categoryGroup.All(product => product.UnitsInStock > 0)
+                select (categoryGroup.Key, categoryGroup);
+
+            return (IEnumerable<(string category, IEnumerable<Product> products)>)query;
         }
 
         /// <summary>
@@ -90,7 +104,7 @@ namespace Linq
         {
             int[] numbers = { 2, 3, 4 };
 
-            throw new NotImplementedException();
+            return numbers.Contains(3);
         }
     }
 }

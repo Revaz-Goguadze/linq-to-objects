@@ -20,6 +20,7 @@ namespace Linq
 
         public static IEnumerable<(string customerId, int orderId, DateTime orderDate)> CustomersTake()
         {
+            // ReSharper disable once UnusedVariable
             List<Customer> customers = Customers.CustomerList;
             throw new NotImplementedException();
         }
@@ -32,6 +33,7 @@ namespace Linq
 
         public static IEnumerable<(string customerId, int orderId, DateTime orderDate)> CustomersSkip()
         {
+            // ReSharper disable once UnusedVariable
             List<Customer> customers = Customers.CustomerList;
             throw new NotImplementedException();
         }

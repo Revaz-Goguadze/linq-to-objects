@@ -30,6 +30,7 @@ namespace Linq
         /// <returns>The sequence of pairs: the remainder of an integer when dividing it by 5 and the numbers with a given remainder.</returns>
         public static IEnumerable<(int remainder, IEnumerable<int> numbers)> Grouping()
         {
+            // ReSharper disable once UnusedVariable
             int[] numbers = { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 };
 
             throw new NotImplementedException();

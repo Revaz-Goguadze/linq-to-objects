@@ -42,13 +42,9 @@ namespace Linq
         /// <returns>The sequence of customers and how many orders each has.</returns>
         public static IEnumerable<(string customerId, int orderCount)> CustomersOrdersCount()
         {
+            // ReSharper disable once UnusedVariable
             List<Customer> customers = Customers.CustomerList;
 
-            //var result = customers.Select(customer => (
-                //customerId: customer.CustomerId, // Corrected property name
-                //orderCount: customer.Orders.Count));
-
-            //return result;
             throw new NotImplementedException();
         }
 
@@ -116,6 +112,7 @@ namespace Linq
         /// <returns>The lowest number in an array.</returns>
         public static int Min()
         {
+            // ReSharper disable once UnusedVariable
             int[] numbers = { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 };
 
             throw new NotImplementedException();
@@ -140,8 +137,11 @@ namespace Linq
         /// Calculates the cheapest price among each category's products.
         /// </summary>
         /// <returns>The cheapest price among each category's products.</returns>
+#pragma warning disable CA1024
         public static IEnumerable<(string category, decimal cheapestPrice)> GetCheapestPrice()
+#pragma warning restore CA1024
         {
+            // ReSharper disable once UnusedVariable
             List<Product> products = Products.ProductList;
 
             throw new NotImplementedException();
@@ -175,8 +175,11 @@ namespace Linq
         /// Calculates the most expensive price among each category's products.
         /// </summary>
         /// <returns>The most expensive price among each category's products.</returns>
+#pragma warning disable CA1024
         public static IEnumerable<(string category, decimal mostExpensivePrice)> GetMostExpensivePrice()
+#pragma warning restore CA1024
         {
+            // ReSharper disable once UnusedVariable
             List<Product> products = Products.ProductList;
 
             throw new NotImplementedException();
@@ -210,6 +213,7 @@ namespace Linq
         /// <returns>The average price of each category's products.</returns>
         public static IEnumerable<(string Category, decimal averagePrice)> AveragePrice()
         {
+            // ReSharper disable once UnusedVariable
             List<Product> products = Products.ProductList;
 
             throw new NotImplementedException();

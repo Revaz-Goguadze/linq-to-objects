@@ -29,7 +29,7 @@ namespace Linq
         {
             var result = Enumerable.Range(1, 10)
                 .Select(number => (
-                    number: number,
+                    number,
                     oddEven: number % 2 == 0 ? "Even" : "Odd"));
             return result;
         }
