@@ -18,18 +18,20 @@ namespace Linq
         {
             double[] doubles = { 1.7, 2.3, 1.9, 4.1, 2.9 };
 
-            throw new NotImplementedException();
+            return doubles.OrderByDescending(d => d).ToArray();
         }
 
         /// <summary>
         /// Order the original array of strings and returns the result as a collection <see cref="List{T}"/> of strings.
         /// </summary>
         /// <returns>Ordered collection of strings as <see cref="List{T}"/>.</returns>
+#pragma warning disable CA1002
         public static List<string> ConvertToList()
+#pragma warning restore CA1002
         {
             string[] words = { "cherry", "apple", "blueberry" };
 
-            throw new NotImplementedException();
+            return words.OrderBy(w => w).ToList();
         }
 
         /// <summary>
@@ -45,7 +47,7 @@ namespace Linq
                 (Name: "Cathy", Score: 45),
             };
 
-            throw new NotImplementedException();
+            return scoreRecords.ToDictionary(sr => sr.Name, sr => (sr.Name, sr.Score));
         }
 
         /// <summary>
@@ -56,7 +58,7 @@ namespace Linq
         {
             object[] numbers = { null, 1.0, "two", 3, "four", 5, "six", 7.0 };
 
-            throw new NotImplementedException();
+            return numbers.OfType<double>();
         }
     }
 }

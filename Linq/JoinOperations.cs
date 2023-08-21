@@ -31,7 +31,12 @@ namespace Linq
 
             List<Product> products = Products.ProductList;
 
-            throw new NotImplementedException();
+            var query =
+                from category in categories
+                join product in products on category equals product.Category
+                select (category, product.ProductName);
+
+            return query;
         }
 
         /// <summary>
@@ -51,7 +56,12 @@ namespace Linq
 
             List<Product> products = Products.ProductList;
 
-            throw new NotImplementedException();
+            var query =
+                from category in categories
+                join product in products on category equals product.Category into productGroup
+                select (category, productsName: productGroup);
+
+            return query;
         }
 
         /// <summary>
@@ -73,7 +83,13 @@ namespace Linq
 
             List<Product> products = Products.ProductList;
 
-            throw new NotImplementedException();
+            var query =
+                from category in categories
+                join product in products on category equals product.Category into productGroup
+                from productOrNull in productGroup.DefaultIfEmpty()
+                select (category, productName: productOrNull?.ProductName ?? "(No products)");
+
+            return query;
         }
     }
 }

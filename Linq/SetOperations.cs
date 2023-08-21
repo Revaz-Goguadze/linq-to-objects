@@ -22,7 +22,7 @@ namespace Linq
         {
             int[] numbers = { 2, 2, 3, 5, 5 };
 
-            throw new NotImplementedException();
+            return numbers.Distinct();
         }
 
         /// <summary>
@@ -33,7 +33,7 @@ namespace Linq
         {
             List<Product> products = Products.ProductList;
 
-            throw new NotImplementedException();
+            return products.Select(p => p.Category).Distinct();
         }
 
         /// <summary>
@@ -45,7 +45,7 @@ namespace Linq
             int[] numbersA = { 0, 2, 4, 5, 6, 8, 9 };
             int[] numbersB = { 1, 3, 5, 7, 8 };
 
-            throw new NotImplementedException();
+            return numbersA.Union(numbersB);
         }
 
         /// <summary>
@@ -57,7 +57,8 @@ namespace Linq
             List<Product> products = Products.ProductList;
             List<Customer> customers = Customers.CustomerList;
 
-            throw new NotImplementedException();
+            return products.Select(p => p.ProductName[0])
+                .Union(customers.Select(c => c.CompanyName[0]));
         }
 
         /// <summary>
@@ -69,7 +70,7 @@ namespace Linq
             int[] numbersA = { 0, 2, 4, 5, 6, 8, 9 };
             int[] numbersB = { 1, 3, 5, 7, 8 };
 
-            throw new NotImplementedException();
+            return numbersA.Intersect(numbersB);
         }
 
         /// <summary>
@@ -81,7 +82,8 @@ namespace Linq
             List<Product> products = Products.ProductList;
             List<Customer> customers = Customers.CustomerList;
 
-            throw new NotImplementedException();
+            return products.Select(p => p.ProductName[0])
+                .Intersect(customers.Select(c => c.CompanyName[0]));
         }
 
         /// <summary>
@@ -93,7 +95,7 @@ namespace Linq
             int[] numbersA = { 0, 2, 4, 5, 6, 8, 9 };
             int[] numbersB = { 1, 3, 5, 7, 8 };
 
-            throw new NotImplementedException();
+            return numbersA.Except(numbersB);
         }
 
         /// <summary>
@@ -105,7 +107,8 @@ namespace Linq
             List<Product> products = Products.ProductList;
             List<Customer> customers = Customers.CustomerList;
 
-            throw new NotImplementedException();
+            return products.Select(p => p.ProductName[0])
+                .Except(customers.Select(c => c.CompanyName[0]));
         }
     }
 }

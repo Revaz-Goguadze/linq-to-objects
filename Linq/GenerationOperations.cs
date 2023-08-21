@@ -17,7 +17,7 @@ namespace Linq
         /// <returns>Empty sequence of integral numbers.</returns>
         public static IEnumerable<int> EmptySequence()
         {
-            throw new NotImplementedException();
+            return Enumerable.Empty<int>();
         }
 
         /// <summary>
@@ -27,7 +27,11 @@ namespace Linq
         /// </returns>
         public static IEnumerable<(int number, string oddEven)> RangeOfIntegers()
         {
-            throw new NotImplementedException();
+            var result = Enumerable.Range(1, 10)
+                .Select(number => (
+                    number: number,
+                    oddEven: number % 2 == 0 ? "Even" : "Odd"));
+            return result;
         }
 
         /// <summary>
@@ -36,7 +40,7 @@ namespace Linq
         /// <returns>The sequence that contains one repeated value. </returns>
         public static IEnumerable<int> RepeatNumber()
         {
-            throw new NotImplementedException();
+            return Enumerable.Repeat(5, 3);
         }
     }
 }

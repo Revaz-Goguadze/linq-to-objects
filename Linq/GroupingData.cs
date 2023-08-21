@@ -21,7 +21,7 @@ namespace Linq
         {
             string[] words = { "blueberry", "chimpanzee", "abacus", "banana", "apple", "cheese" };
 
-            throw new NotImplementedException();
+            return words.GroupBy(w => w[0]).OrderBy(g => g.Key);
         }
 
         /// <summary>
@@ -43,7 +43,9 @@ namespace Linq
         {
             List<Product> products = Products.ProductList;
 
-            throw new NotImplementedException();
+            return products.GroupBy(p => p.Category)
+                .Where(g => g.Count() <= 7)
+                .Select(g => (category: g.Key, productsName: g.Select(p => p.ProductName)));
         }
 
         /// <summary>
@@ -54,7 +56,8 @@ namespace Linq
         {
             string[] anagrams = { "from   ", "  mane", " salt", " earn ", "name   ", "  last   ", " near ", " form  ", "mean" };
 
-            throw new NotImplementedException();
+            var comparer = new AnagramEqualityComparer();
+            return anagrams.GroupBy(w => w.Trim(), comparer);
         }
 
         /// <summary>
@@ -65,7 +68,11 @@ namespace Linq
         {
             string[] anagrams = { "from   ", "  mane", " salt", " earn ", "name   ", "  last   ", " near ", " form  ", "mean" };
 
-            throw new NotImplementedException();
+            var comparer = new AnagramEqualityComparer();
+#pragma warning disable CA1304
+            return anagrams.Select(w => w.Trim().ToUpper())
+#pragma warning restore CA1304
+                .GroupBy(w => w, comparer);
         }
     }
 }

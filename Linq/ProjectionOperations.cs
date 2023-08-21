@@ -20,7 +20,7 @@ namespace Linq
         {
             int[] numbers = { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 };
 
-            throw new NotImplementedException();
+            return numbers.Select(num => num + 1);
         }
 
         /// <summary>
@@ -31,7 +31,7 @@ namespace Linq
         {
             List<Product> products = Products.ProductList;
 
-            throw new NotImplementedException();
+            return products.Select(product => product.ProductName);
         }
 
         /// <summary>
@@ -43,7 +43,7 @@ namespace Linq
             int[] numbers = { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 };
             string[] strings = { "zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine" };
 
-            throw new NotImplementedException();
+            return numbers.Select(number => strings[number]);
         }
 
         /// <summary>
@@ -54,7 +54,15 @@ namespace Linq
         {
             string[] words = { "aPPLE", "BlUeBeRrY", "cHeRry" };
 
-            throw new NotImplementedException();
+            var transformedWords = words.Select(word => (
+#pragma warning disable CA1304
+                upper: word.ToUpper(),
+#pragma warning restore CA1304
+#pragma warning disable CA1304
+                lower: word.ToLower()));
+#pragma warning restore CA1304
+
+            return transformedWords;
         }
 
         /// <summary>
@@ -66,7 +74,11 @@ namespace Linq
             int[] numbers = { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 };
             string[] strings = { "zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine" };
 
-            throw new NotImplementedException();
+            var result = numbers.Select(number => (
+                digit: strings[number],
+                even: number % 2 == 0));
+
+            return result;
         }
 
         /// <summary>
@@ -77,7 +89,12 @@ namespace Linq
         {
             List<Product> products = Products.ProductList;
 
-            throw new NotImplementedException();
+            var result = products.Select(product => (
+                productName: product.ProductName,
+                category: product.Category,
+                price: product.UnitPrice));
+
+            return result;
         }
 
         /// <summary>
@@ -88,7 +105,11 @@ namespace Linq
         {
             int[] numbers = { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 };
 
-            throw new NotImplementedException();
+            var result = numbers.Select((number, index) => (
+                number: number,
+                inPlace: number == index));
+
+            return result;
         }
 
         /// <summary>
@@ -100,7 +121,11 @@ namespace Linq
             int[] numbers = { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 };
             string[] digits = { "zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine" };
 
-            throw new NotImplementedException();
+            var result = numbers
+                .Where(number => number < 5)
+                .Select(number => digits[number]);
+
+            return result;
         }
 
         /// <summary>
@@ -112,7 +137,10 @@ namespace Linq
             int[] numbersA = { 0, 2, 4, 5, 6, 8, 9 };
             int[] numbersB = { 1, 3, 5, 7, 8 };
 
-            throw new NotImplementedException();
+            var result = numbersA
+                .SelectMany(a => numbersB.Where(b => a < b), (a, b) => (a, b));
+
+            return result;
         }
 
         /// <summary>

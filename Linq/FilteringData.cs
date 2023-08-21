@@ -20,7 +20,7 @@ namespace Linq
         {
             int[] numbers = { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 };
 
-            throw new NotImplementedException();
+            return numbers.Where(n => n < 5);
         }
 
         /// <summary>
@@ -31,7 +31,7 @@ namespace Linq
         {
             List<Product> products = Products.ProductList;
 
-            throw new NotImplementedException();
+            return products.Where(p => p.UnitsInStock == 0);
         }
 
         /// <summary>
@@ -42,7 +42,7 @@ namespace Linq
         {
             List<Product> products = Products.ProductList;
 
-            throw new NotImplementedException();
+            return products.Where(p => p.UnitsInStock > 0 && p.UnitPrice > 50);
         }
 
         /// <summary>
@@ -53,7 +53,7 @@ namespace Linq
         {
             string[] digits = { "zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine" };
 
-            throw new NotImplementedException();
+            return digits.Where((d, i) => d.Length < i);
         }
     }
 }

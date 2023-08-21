@@ -19,7 +19,7 @@ namespace Linq
             int[] numbersA = { 0, 2, 4, 5, 6, 8, 9 };
             int[] numbersB = { 1, 3, 5, 7, 8 };
 
-            throw new NotImplementedException();
+            return numbersA.Concat(numbersB);
         }
 
         /// <summary>
@@ -31,7 +31,7 @@ namespace Linq
             List<Customer> customers = Customers.CustomerList;
             List<Product> products = Products.ProductList;
 
-            throw new NotImplementedException();
+            return customers.Select(c => c.CompanyName).Concat(products.Select(p => p.ProductName));
         }
 
         /// <summary>
@@ -43,7 +43,7 @@ namespace Linq
             int[] vectorA = { 0, 2, 4, 5, 6 };
             int[] vectorB = { 1, 3, 5, 7, 8 };
 
-            throw new NotImplementedException();
+            return vectorA.Zip(vectorB, (a, b) => a * b).Sum();
         }
     }
 }

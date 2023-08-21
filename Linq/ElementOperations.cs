@@ -22,7 +22,7 @@ namespace Linq
         {
             List<Product> products = Products.ProductList;
 
-            throw new NotImplementedException();
+            return products.First(p => p.ProductId == 1);
         }
 
         /// <summary>
@@ -33,7 +33,9 @@ namespace Linq
         {
             string[] strings = { "zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine" };
 
-            throw new NotImplementedException();
+#pragma warning disable CA1310
+            return strings.FirstOrDefault(s => s.StartsWith("o"));
+#pragma warning restore CA1310
         }
 
         /// <summary>
@@ -45,7 +47,7 @@ namespace Linq
         {
             int[] numbers = { };
 
-            throw new NotImplementedException();
+            return numbers.FirstOrDefault();
         }
 
         /// <summary>
@@ -57,7 +59,7 @@ namespace Linq
         {
             List<Product> products = Products.ProductList;
 
-            throw new NotImplementedException();
+            return products.FirstOrDefault(p => p.ProductId == 789);
         }
 
         /// <summary>
@@ -69,7 +71,7 @@ namespace Linq
         {
             int[] numbers = { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 };
 
-            throw new NotImplementedException();
+            return numbers.Where(n => n > 5).ElementAt(1);
         }
 
         /// <summary>
@@ -80,7 +82,9 @@ namespace Linq
         {
             string[] strings = { "zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine" };
 
-            throw new NotImplementedException();
+#pragma warning disable CA1307
+            return strings.LastOrDefault(s => s.Contains('o'));
+#pragma warning restore CA1307
         }
 
         /// <summary>
@@ -92,7 +96,7 @@ namespace Linq
         {
             int[] numbers = { };
 
-            throw new NotImplementedException();
+            return numbers.LastOrDefault();
         }
 
         /// <summary>
@@ -104,7 +108,9 @@ namespace Linq
         {
             string[] strings = { "zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine" };
 
-            throw new NotImplementedException();
+#pragma warning disable CA1307
+            return strings.Single(s => s.Contains('o'));
+#pragma warning restore CA1307
         }
 
         /// <summary>
@@ -116,7 +122,9 @@ namespace Linq
         {
             string[] strings = { "zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine" };
 
-            throw new NotImplementedException();
+#pragma warning disable CA1307
+            return strings.Single(s => s.Contains('x'));
+#pragma warning restore CA1307
         }
 
         /// <summary>
@@ -128,7 +136,9 @@ namespace Linq
         {
             string[] strings = { "zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine" };
 
-            throw new NotImplementedException();
+#pragma warning disable CA1307
+            return strings.SingleOrDefault(s => s.Contains('o'));
+#pragma warning restore CA1307
         }
     }
 }

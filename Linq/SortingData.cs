@@ -15,92 +15,68 @@ namespace Linq
     /// </summary>
     public static class SortingData
     {
-        /// <summary>
-        /// Sorts a list of words alphabetically.
-        /// </summary>
-        /// <returns>Sorted alphabetically sequence of words.</returns>
         public static IEnumerable<string> OrderBy()
         {
             string[] words = { "cherry", "apple", "blueberry" };
 
-            throw new NotImplementedException();
+            var result = words.OrderBy(word => word);
+            return result;
         }
 
-        /// <summary>
-        ///  Sorts a list of words by length.
-        /// </summary>
-        /// <returns>Sorted by length sequence of words.</returns>
         public static IEnumerable<string> OrderByProperty()
         {
             string[] words = { "cherry", "apple", "blueberry" };
 
-            throw new NotImplementedException();
+            var result = words.OrderBy(word => word.Length);
+            return result;
         }
 
-        /// <summary>
-        /// Sorts a list of products by name.
-        /// </summary>
-        /// <returns>Sorted sequence of products by name.</returns>
         public static IEnumerable<Product> OrderByProducts()
         {
             List<Product> products = Products.ProductList;
 
-            throw new NotImplementedException();
+            var result = products.OrderBy(product => product.ProductName);
+            return result;
         }
 
-        /// <summary>
-        /// Sorts a list of words alphabetically case insensitive.
-        /// </summary>
-        /// <returns>Sorted alphabetically sequence of words.</returns>
         public static IEnumerable<string> OrderByWithCustomComparer()
         {
             string[] words = { "aPPLE", "AbAcUs", "bRaNcH", "BlUeBeRrY", "ClOvEr", "cHeRry" };
 
-            throw new NotImplementedException();
+            var result = words.OrderBy(word => word, StringComparer.OrdinalIgnoreCase);
+            return result;
         }
 
-        /// <summary>
-        /// Sorts a list of doubles from highest to lowest.
-        /// </summary>
-        /// <returns>Sorted sequence of doubles.</returns>
         public static IEnumerable<double> OrderByDescending()
         {
             double[] doubles = { 1.7, 2.3, 1.9, 4.1, 2.9 };
 
-            throw new NotImplementedException();
+            var result = doubles.OrderByDescending(number => number);
+            return result;
         }
 
-        /// <summary>
-        /// Sorts a list of products by units in stock from highest to lowest.
-        /// </summary>
-        /// <returns>Sorted by units in stock sequence of products.</returns>
         public static IEnumerable<Product> OrderProductsDescending()
         {
             List<Product> products = Products.ProductList;
 
-            throw new NotImplementedException();
+            var result = products.OrderByDescending(product => product.UnitsInStock);
+            return result;
         }
 
-        /// <summary>
-        /// Sorts descending a list of words alphabetically case insensitive.
-        /// </summary>
-        /// <returns>Sorted descending sequence of words alphabetically case insensitive.</returns>
         public static IEnumerable<string> DescendingCustomComparer()
         {
             string[] words = { "aPPLE", "AbAcUs", "bRaNcH", "BlUeBeRrY", "ClOvEr", "cHeRry" };
 
-            throw new NotImplementedException();
+            var result = words.OrderByDescending(word => word, StringComparer.OrdinalIgnoreCase);
+            return result;
         }
 
-        /// <summary>
-        /// Sorts a list of digits, first by length of their name, and then alphabetically by the name itself.
-        /// </summary>
-        /// <returns>Sorted sequence of digits.</returns>
         public static IEnumerable<string> ThenBy()
         {
             string[] digits = { "zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine" };
 
-            throw new NotImplementedException();
+            var result = digits.OrderBy(digit => digit.Length).ThenBy(digit => digit);
+            return result;
         }
 
         /// <summary>
@@ -111,7 +87,8 @@ namespace Linq
         {
             string[] words = { "aPPLE", "AbAcUs", "bRaNcH", "BlUeBeRrY", "ClOvEr", "cHeRry" };
 
-            throw new NotImplementedException();
+            var result = words.OrderBy(word => word.Length).ThenBy(word => word, StringComparer.OrdinalIgnoreCase);
+            return result;
         }
 
         /// <summary>
@@ -122,7 +99,9 @@ namespace Linq
         {
             List<Product> products = Products.ProductList;
 
-            throw new NotImplementedException();
+            var result = products.OrderBy(product => product.Category)
+                .ThenByDescending(product => product.UnitPrice);
+            return result;
         }
 
         /// <summary>
@@ -133,7 +112,9 @@ namespace Linq
         {
             string[] words = { "aPPLE", "AbAcUs", "bRaNcH", "BlUeBeRrY", "ClOvEr", "cHeRry" };
 
-            throw new NotImplementedException();
+            var result = words.OrderBy(word => word.Length)
+                .ThenByDescending(word => word, StringComparer.OrdinalIgnoreCase);
+            return result;
         }
 
         /// <summary>
@@ -144,7 +125,9 @@ namespace Linq
         {
             string[] digits = { "zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine" };
 
-            throw new NotImplementedException();
+            var result = digits.Where(digit => digit.Length > 1 && digit[1] == 'i')
+                .Reverse();
+            return result;
         }
     }
 }
